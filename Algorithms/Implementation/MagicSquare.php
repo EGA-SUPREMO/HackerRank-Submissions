@@ -1,5 +1,4 @@
 <?php
-
 const MAGIC_SQUARE_CONSTANT = 15;
 const MAGIC_SQUARES = [[[8, 1, 6],
                         [3, 5, 7],
@@ -37,9 +36,10 @@ const MAGIC_SQUARES = [[[8, 1, 6],
 function formingMagicSquare($array)
 {
     $absoluteCosts = array_fill(0, count(MAGIC_SQUARES), 0);
-    $minimumCost = 0;
+    $minimumCost = MAGIC_SQUARE_CONSTANT*3;
 
     $length = count($array[0]);
+
     for ($i=0; $i < count(MAGIC_SQUARES); $i++) {
         for ($x = 0; $x < $length; $x++) {
             for ($y = 0; $y < $length; $y++) {
@@ -53,7 +53,7 @@ function formingMagicSquare($array)
             $minimumCost = $absoluteCosts[$i];
         }
     }
-    
+
     return $minimumCost;
 }
 
